@@ -1,22 +1,28 @@
+const { Database } = require("sqlite3");
+const database = require("../../data/db-config");
+
+
 const getAll = () => {
-  // KODLAR BURAYA
-}
+  return database("accounts");
+};
 
 const getById = id => {
-  // KODLAR BURAYA
-}
+  return database("accounts").where("name", name).first();
+};
 
 const create = account => {
-  // KODLAR BURAYA
-}
+  const insert = await database("accounts").insert(account);
+  return getById(instert[0]);
+};
 
 const updateById = (id, account) => {
-  // KODLAR BURAYA
-}
+  await database("accounts").where("id", id).update(account);
+  return getBıyId(id);
+};
 
 const deleteById = id => {
-  // KODLAR BURAYA
-}
+  return database("accounts").where("id", id).del(); 
+};
 
 module.exports = {
   getAll,
@@ -24,4 +30,4 @@ module.exports = {
   create,
   updateById,
   deleteById,
-}
+};
